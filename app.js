@@ -1,15 +1,24 @@
 console.log("app.js is starting ");
 const _ = require("lodash");
 const notes = require("./notes");
+const yargs = require("yargs");
+var argv = yargs.argv
 
-var command = process.argv[2];
+
+var command = argv._[0];
 console.log("command: ",command);
-
+console.log("Yargs: ",argv);
 if(command === 'list'){
-  console.log("listing all notes");
+  notes.getNotes();
 }
 else if(command === 'add'){
-  console.log("add notes to the app");
+  notes.addNotes(argv.title,argv.body);
+}
+else if(command === 'read'){
+  notes.readNotes(argv.title);
+}
+else if(command === 'remove'){
+  notes.removeNotes(argv.title);
 }
 else{
   console.log("No command found!");
