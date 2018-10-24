@@ -37,7 +37,9 @@ else{
 
 };
 var getNotes = () =>{
-
+  var notes = fetchNotes();
+  var allNotes = notes.map((note)=> console.log(`Title : ${note.title} && Body : ${note.body}`));
+  
 }
 var readNotes  = (title) =>{
   var notes = fetchNotes();
