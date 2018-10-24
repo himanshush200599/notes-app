@@ -37,10 +37,13 @@ else{
 
 };
 var getNotes = () =>{
-  console.log("getting all notes ");
+
 }
 var readNotes  = (title) =>{
-  console.log("reading notes",title);
+  var notes = fetchNotes();
+  var singleNote = notes.filter((note)=> note.title === title);
+  var message = singleNote.length ?`Here is body of the notes : ${singleNote[0].body}`:'No notes found of given title';
+  console.log(message);
 }
 var removeNotes = (title) =>{
   var notes = fetchNotes();
